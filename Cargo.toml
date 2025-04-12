@@ -1,0 +1,10 @@
+[workspace]
+members = [
+    "crates/fe-core",
+    "crates/fe-macros",
+    "crates/fe-signals",
+    "crates/fe-runtime",
+    "crates/fe-components",
+    "examples/hello-world"
+]
+
