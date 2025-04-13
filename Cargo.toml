@@ -5,6 +5,7 @@ members = [
     "crates/fe-signals",
     "crates/fe-runtime",
     "crates/fe-components",
+    "crates/fe-styles",
     "examples/hello-world"
 ]
 

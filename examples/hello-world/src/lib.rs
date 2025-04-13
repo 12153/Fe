@@ -1,19 +1,23 @@
-use fe_core::FeNode;
+use fe_core::{FeNode, render};
 use fe_core::rsx;
 use wasm_bindgen::prelude::*;
-use crate::FeNode::Element;
-use std::collections::HashMap;
+use web_sys::console;
 
 #[wasm_bindgen(start)]
-fn run() {
-    let tree = rsx!("<div class='box'><h1>Hello World</h1></div>");
+fn start() {
+    let document = web_sys::window().unwrap().document().unwrap();
+    let app = document.get_element_by_id("app").unwrap();
 
-    log_node(&tree);
+    console::log_1(&"running...".into());
+
+    let tree = rsx! { 
+        <div class="box">
+            <h1>"Hello World"</h1>
+            <p>"this is really cool"</p>
+        </div>
+    };
+
+    let node = render(&document, &tree);
+    app.append_child(&node).expect("could not append child");
 }
 
-fn log_node(node: &FeNode) {
-    match node {
-        FeNode::Element { tag, .. } => web_sys::console::log_1(&format!("Element: <{}>", tag).into()),
-        FeNode::Text(text) => web_sys::console::log_1(&format!("Text: {}", text).into()),
-    }
-}
