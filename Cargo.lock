@@ -33,6 +33,7 @@ name = "fe-hello-world"
 version = "0.1.0"
 dependencies = [
  "fe-core",
+ "fe-styles",
  "wasm-bindgen",
  "web-sys",
 ]

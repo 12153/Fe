@@ -1,17 +1,19 @@
 use fe_core::{FeNode, render};
-use fe_core::rsx;
+use fe_core::{rsx, css};
 use wasm_bindgen::prelude::*;
-use web_sys::console;
 
 #[wasm_bindgen(start)]
 fn start() {
     let document = web_sys::window().unwrap().document().unwrap();
     let app = document.get_element_by_id("app").unwrap();
 
-    console::log_1(&"running...".into());
-
     let tree = rsx! { 
-        <div class="box">
+        <div class="box" style={css! {
+            backgroundColor: "red";
+            width: "100%";
+            height: "200px";
+            padding: "8px";
+        }}>
             <h1>"Hello World"</h1>
             <p>"this is really cool"</p>
         </div>

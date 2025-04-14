@@ -31,4 +31,4 @@ pub fn render(document: &Document, node: &FeNode) -> Node {
     }
 }
 
-pub use fe_macros::rsx;
+pub use fe_macros::{rsx, css};
