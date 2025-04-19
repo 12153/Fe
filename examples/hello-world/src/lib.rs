@@ -10,12 +10,17 @@ fn start() {
     let tree = rsx! { 
         <div class="box" style={css! {
             backgroundColor: "red";
-            width: "100%";
+            width: "calc(100% - 16px)";
             height: "200px";
             padding: "8px";
         }}>
             <h1>"Hello World"</h1>
-            <p>"this is really cool"</p>
+            <p>"this is a thing"</p>
+            <button style={css! {
+                backgroundColor: "blue";
+                borderRadius: "8px";
+                width: "120px";
+            }}>"a"</button>
         </div>
     };
 
